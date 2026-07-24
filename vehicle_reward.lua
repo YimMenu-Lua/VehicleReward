@@ -1,13 +1,13 @@
 local vehicle_tab = gui.get_tab("GUI_TAB_VEHICLE")
 
-local GARAGE_MENU_DATA    = 176 -- 3A ? 42 ? 71 3A ? 42 ? 71 3A ? 42 ? 71 3A ? 42 ? 71 3A ? 42 ? 71 71 +1
-local VEHICLE_REWARD_DATA = 129 -- 3A ? 40 ? 5D ? ? ? 2A +1
+local GARAGE_MENU_DATA    = 195 -- 3A ? 42 ? 71 3A ? 42 ? 71 3A ? 42 ? 71 3A ? 42 ? 71 3A ? 42 ? 71 71 +1
+local VEHICLE_REWARD_DATA = 148 -- 3A ? 40 ? 5D ? ? ? 2A +1
 
 local should_run_script = false
 
 -- It's actually possible to save blacklisted vehicles as PV, but doing so requires patching a lot of scripts, and once the patches are disabled, the game will instantly delete these vehicles anyway, so it's not worth it.
 local function IS_VEHICLE_VALID_FOR_PV(vehicle_hash)
-    return scr_function.call_script_function("freemode", 0x913BB, "bool", {
+    return scr_function.call_script_function("freemode", "IVVFPV", "2D 01 03 00 00 38 00 5D ? ? ? 56 ? ? 72 2E 01 01 38 00 28", "bool", {
         { "int", vehicle_hash }
     })
 end
